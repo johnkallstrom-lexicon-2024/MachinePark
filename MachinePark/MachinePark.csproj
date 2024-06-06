@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MachinePark.Persistence\MachinePark.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
