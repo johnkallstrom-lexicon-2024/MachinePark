@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachinePark", "MachinePark\MachinePark.csproj", "{EEC41D52-A617-42BD-83CF-6A940C8702D1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachinePark.Domain", "MachinePark.Domain\MachinePark.Domain.csproj", "{8CA5D9EB-5D1B-41B1-AC94-3502BF979364}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EEC41D52-A617-42BD-83CF-6A940C8702D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEC41D52-A617-42BD-83CF-6A940C8702D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEC41D52-A617-42BD-83CF-6A940C8702D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CA5D9EB-5D1B-41B1-AC94-3502BF979364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA5D9EB-5D1B-41B1-AC94-3502BF979364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA5D9EB-5D1B-41B1-AC94-3502BF979364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA5D9EB-5D1B-41B1-AC94-3502BF979364}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
