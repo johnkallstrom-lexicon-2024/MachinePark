@@ -1,16 +1,19 @@
-﻿using MachinePark.Domain.Entities;
+﻿using MachinePark.Domain.Abstractions;
+using MachinePark.Domain.Entities;
 using Microsoft.AspNetCore.Components;
 
 namespace MachinePark.Features.Machines.Components
 {
     public partial class ListOfMachines
     {
-        [Parameter]
+        [Inject]
+        public IRepository<Machine> MachineRepository { get; set; } = default!;
+
         public IEnumerable<Machine> Machines { get; set; } = [];
 
-        protected override void OnParametersSet()
+        protected override void OnInitialized()
         {
-            base.OnParametersSet();
+            Machines = MachineRepository.Get();
         }
     }
 }
