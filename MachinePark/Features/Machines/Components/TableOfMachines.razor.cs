@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace MachinePark.Features.Machines.Components
 {
-    public partial class ListOfMachines
+    public partial class TableOfMachines
     {
         [Inject]
         public IRepository<Machine> MachineRepository { get; set; } = default!;
