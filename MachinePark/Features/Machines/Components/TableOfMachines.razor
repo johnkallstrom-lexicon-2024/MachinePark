@@ -17,7 +17,17 @@
                     <tr>
                         <td>@machine.Id</td>
                         <td>@machine.Name</td>
-                        <td>@machine.Status</td>
+                        <td>
+                            @switch (machine.Status)
+                            {
+                                case MachineStatus.Online:
+                                    <span class="badge text-bg-success">@machine.Status</span>
+                                    break;
+                                case MachineStatus.Offline:
+                                    <span class="badge text-bg-light">@machine.Status</span>
+                                    break;
+                            }
+                        </td>
                         <td>@machine.Type</td>
                     </tr>
                 }
