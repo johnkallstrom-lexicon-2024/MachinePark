@@ -1,6 +1,5 @@
 using MachinePark.Features;
 using MachinePark.Persistence;
-using Blazored.Modal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +7,6 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddPersistenceServices();
-builder.Services.AddBlazoredModal();
 
 var app = builder.Build();
 
