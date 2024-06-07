@@ -1,7 +1,7 @@
 ﻿<div class="card shadow border-0">
     <div class="card-body">
         <h5 class="d-inline">Machines</h5>
-        <a href="/machines/create" class="btn btn-primary float-end">New</a>
+        <a href="/machines/create" class="btn btn-success float-end">New</a>
         <table class="table">
             <thead>
                 <tr>
@@ -9,6 +9,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Status</th>
                     <th scope="col">Type</th>
+                    <th scope="col">Manage</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,14 @@
                             }
                         </td>
                         <td>@machine.Type</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
                     </tr>
                 }
             </tbody>
