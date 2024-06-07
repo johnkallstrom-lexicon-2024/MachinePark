@@ -25,3 +25,8 @@
         </table>
     </div>
 </div>
+
+@code {
+    [Parameter]
+    public IEnumerable<MachineViewModel> Model { get; set; } = [];
+}

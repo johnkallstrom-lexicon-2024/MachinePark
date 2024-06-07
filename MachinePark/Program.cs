@@ -1,5 +1,6 @@
 using MachinePark.Features;
 using MachinePark.Persistence;
+using MachinePark.Services;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddPersistenceServices();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddScoped<IMachineService, MachineService>();
 
 var app = builder.Build();
 

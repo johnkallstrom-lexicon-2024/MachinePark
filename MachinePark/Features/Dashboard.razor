@@ -12,3 +12,15 @@
         <TableOfMachines Model="Machines" />
     </div>
 </div>
+
+@code {
+    [Inject]
+    public IMachineService MachineService { get; set; } = default!;
+
+    public IEnumerable<MachineViewModel> Machines { get; set; } = [];
+
+    protected override void OnInitialized()
+    {
+        Machines = MachineService.GetMachines();
+    }
+}
