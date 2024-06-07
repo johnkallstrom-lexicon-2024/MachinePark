@@ -1,6 +1,6 @@
 ﻿namespace MachinePark.Features.Machines.Components
 {
-    public partial class NewMachineForm
+    public partial class CreateMachineForm
     {
     }
 }
