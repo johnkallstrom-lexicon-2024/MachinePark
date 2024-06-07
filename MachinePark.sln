@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachinePark", "MachinePark\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachinePark.Domain", "MachinePark.Domain\MachinePark.Domain.csproj", "{8CA5D9EB-5D1B-41B1-AC94-3502BF979364}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachinePark.Persistence", "MachinePark.Persistence\MachinePark.Persistence.csproj", "{145AEB9C-9215-41DA-8961-FC46CEA00DB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachinePark.Persistence", "MachinePark.Persistence\MachinePark.Persistence.csproj", "{145AEB9C-9215-41DA-8961-FC46CEA00DB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
