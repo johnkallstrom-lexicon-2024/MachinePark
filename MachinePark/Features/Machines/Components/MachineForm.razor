@@ -1,6 +1,12 @@
-﻿<div class="card shadow border-0">
+﻿@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<div class="card shadow border-0">
     <div class="card-body">
-        <h5 class="mb-3">Create a new machine</h5>
+        @if (!string.IsNullOrWhiteSpace(Title))
+        {
+            <h5 class="mb-3">@Title</h5>
+        }
         <form method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -22,7 +28,15 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-danger">Cancel</button>
+            <button type="button" class="btn btn-danger" @onclick="@(() => NavigationManager.NavigateTo("/dashboard"))">Cancel</button>
         </form>
     </div>
 </div>
+
+@code {
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public MachineCreateOrEditViewModel Model { get; set; } = default!;
+}

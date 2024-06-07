@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var machine in Model)
+                @foreach (var machine in Data)
                 {
                     <tr>
                         <td>@machine.Id</td>
@@ -31,12 +31,12 @@
                         </td>
                         <td>@machine.Type</td>
                         <td>
-                            <button class="btn btn-sm btn-primary">
+                            <a href="@($"/machines/edit/{machine.Id}")" class="btn btn-sm btn-primary">
                                 <i class="bi bi-pencil"></i>
-                            </button>
-                            <button class="btn btn-sm btn-danger">
+                            </a>
+                            <a href="@($"/machines/delete/{machine.Id}")" class="btn btn-sm btn-danger">
                                 <i class="bi bi-trash"></i>
-                            </button>
+                            </a>
                         </td>
                     </tr>
                 }
@@ -47,5 +47,5 @@
 
 @code {
     [Parameter]
-    public IEnumerable<MachineViewModel> Model { get; set; } = [];
+    public IEnumerable<MachineViewModel> Data { get; set; } = [];
 }
