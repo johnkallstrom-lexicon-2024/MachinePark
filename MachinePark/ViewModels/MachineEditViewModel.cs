@@ -2,7 +2,7 @@
 
 namespace MachinePark.ViewModels
 {
-    public record MachineCreateOrEditViewModel
+    public record MachineEditViewModel
     {
         public string? Name { get; init; }
         public MachineStatus Status { get; init; }
