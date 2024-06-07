@@ -12,13 +12,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var machine in Machines)
+                @foreach (var machine in Model)
                 {
                     <tr>
                         <td>@machine.Id</td>
                         <td>@machine.Name</td>
                         <td>@machine.Status</td>
-                        <td>@machine.Type.Name</td>
+                        <td>@machine.Type</td>
                     </tr>
                 }
             </tbody>
