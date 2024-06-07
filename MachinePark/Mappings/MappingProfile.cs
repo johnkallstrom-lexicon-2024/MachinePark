@@ -11,6 +11,8 @@ namespace MachinePark.Mappings
             CreateMap<Machine, MachineViewModel>()
                 .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type.Name))
                 .ReverseMap();
+
+            CreateMap<MachineCreateOrEditViewModel, Machine>();
         }
     }
 }
