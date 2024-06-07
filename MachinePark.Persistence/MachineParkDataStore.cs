@@ -26,7 +26,7 @@ namespace MachinePark.Persistence
                 {
                     Id = Guid.NewGuid(),
                     Name = "Machine 2",
-                    Status = MachineStatus.Online,
+                    Status = MachineStatus.Offline,
                     Type = new MachineType
                     {
                         Id = 1,
@@ -37,7 +37,7 @@ namespace MachinePark.Persistence
                 {
                     Id = Guid.NewGuid(),
                     Name = "Machine 3",
-                    Status = MachineStatus.Online,
+                    Status = MachineStatus.Offline,
                     Type = new MachineType
                     {
                         Id = 1,
