@@ -1,0 +1,9 @@
+﻿@page "/machines/delete/{id:guid}"
+
+<PageTitle>Machine Park - Delete Machine</PageTitle>
+<MachineDeleteConfirmation />
+
+@code {
+    [Parameter]
+    public Guid Id { get; set; }
+}

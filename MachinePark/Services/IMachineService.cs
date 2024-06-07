@@ -1,4 +1,4 @@
-﻿using MachinePark.ViewModels;
+﻿using MachinePark.Features.Machines.ViewModels;
 
 namespace MachinePark.Services
 {

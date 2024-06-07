@@ -1,6 +1,6 @@
 ﻿using MachinePark.Domain.Enums;
 
-namespace MachinePark.ViewModels
+namespace MachinePark.Features.Machines.ViewModels
 {
     public record MachineCreateViewModel
     {

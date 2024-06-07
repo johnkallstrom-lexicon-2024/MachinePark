@@ -1,8 +1,5 @@
-﻿@page "/machines/delete/{id:guid}"
+﻿@inject NavigationManager NavigationManager
 @rendermode InteractiveServer
-@inject NavigationManager NavigationManager
-
-<PageTitle>Machine Park - Delete Machine</PageTitle>
 
 <div class="card shadow border-0">
     <div class="card-body">
@@ -12,8 +9,3 @@
         <button class="btn btn-danger" @onclick="@(() => NavigationManager.NavigateTo("/dashboard"))">Cancel</button>
     </div>
 </div>
-
-@code {
-    [Parameter]
-    public Guid Id { get; set; }
-}

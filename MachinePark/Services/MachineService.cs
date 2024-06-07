@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MachinePark.Domain.Abstractions;
 using MachinePark.Domain.Entities;
-using MachinePark.ViewModels;
+using MachinePark.Features.Machines.ViewModels;
 
 namespace MachinePark.Services
 {
