@@ -2,7 +2,14 @@
 
 <Navbar />
 <div class="container py-3">
-    @Body
+    <div class="row">
+        <div class="col-sm-4 col-xl-3">
+            <DailyStatistics />
+        </div>
+        <div class="col-sm-8 col-xl-9">
+            @Body
+        </div>
+    </div>
 </div>
 
 <div id="blazor-error-ui">
