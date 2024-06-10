@@ -14,7 +14,11 @@ namespace MachinePark.Persistence.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Machine>> GetAsync() => await _context.Machines.ToListAsync();
+        public async Task<IEnumerable<Machine>> GetAsync()
+        {
+            var machines = await _context.Machines.ToListAsync();
+            return machines;
+        }
 
         public async Task<Machine?> GetByIdAsync<Guid>(Guid id)
         {
@@ -30,6 +34,7 @@ namespace MachinePark.Persistence.Repositories
             }
 
             await _context.Machines.AddAsync(machine);
+            await _context.SaveChangesAsync();
         }
     }
 }
