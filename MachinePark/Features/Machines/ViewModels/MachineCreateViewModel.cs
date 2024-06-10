@@ -12,5 +12,8 @@ namespace MachinePark.Features.Machines.ViewModels
         [Required]
         [EnumDataType(typeof(MachineStatus))]
         public MachineStatus Status { get; set; }
+
+        [Required]
+        public int MachineTypeId { get; set; }
     }
 }
