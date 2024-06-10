@@ -1,0 +1,11 @@
+﻿@inject NavigationManager NavigationManager
+
+<button type="button" class="btn btn-danger" @onclick="@(() => NavigationManager.NavigateTo(ReturnUrl))">@Label</button>
+
+@code {
+    [Parameter]
+    public required string Label { get; set; }
+
+    [Parameter]
+    public required string ReturnUrl { get; set; }
+}
