@@ -1,7 +1,6 @@
+using MachinePark;
 using MachinePark.Features;
 using MachinePark.Persistence;
-using MachinePark.Services;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +8,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddPersistenceServices();
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-builder.Services.AddScoped<IMachineService, MachineService>();
+builder.Services.AddWebServices();
 
 var app = builder.Build();
 

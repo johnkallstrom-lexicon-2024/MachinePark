@@ -13,6 +13,8 @@ namespace MachinePark.Mappings
                 .ReverseMap();
 
             CreateMap<MachineCreateViewModel, Machine>();
+
+            CreateMap<MachineType, MachineTypeViewModel>().ReverseMap();
         }
     }
 }

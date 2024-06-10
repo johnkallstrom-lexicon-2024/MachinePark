@@ -11,6 +11,7 @@ namespace MachinePark.Persistence
         {
             services.AddSingleton<MachineParkDataStore>();
             services.AddScoped<IRepository<Machine>, MachineRepository>();
+            services.AddScoped<IRepository<MachineType>, MachineTypeRepository>();
 
             return services;
         }
