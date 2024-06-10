@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MachinePark.Persistence\MachinePark.Persistence.csproj" />
+    <ProjectReference Include="..\MachinePark.Shared\MachinePark.Shared.csproj" />
   </ItemGroup>
 
 </Project>

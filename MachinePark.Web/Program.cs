@@ -1,14 +1,7 @@
-using MachinePark;
-using MachinePark.Persistence;
-using MachinePark.Web.Features;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-
-builder.Services.AddPersistenceServices(builder.Configuration);
-builder.Services.AddWebServices();
 
 var app = builder.Build();
 

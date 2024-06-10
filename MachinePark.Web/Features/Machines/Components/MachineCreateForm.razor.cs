@@ -1,5 +1,4 @@
-﻿using MachinePark.Web.Features.Machines.ViewModels;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 
 namespace MachinePark.Web.Features.Machines.Components
 {
@@ -8,7 +7,7 @@ namespace MachinePark.Web.Features.Machines.Components
         [Parameter]
         public string? Title { get; set; }
 
-        public MachineCreateViewModel Model { get; set; } = new();
+        public MachineCreateDto Model { get; set; } = new();
 
         private async Task Submit()
         {
