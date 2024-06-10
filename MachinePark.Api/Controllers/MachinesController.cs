@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using MachinePark.Domain.Abstractions;
+using MachinePark.Domain.Entities;
+using MachinePark.Shared.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MachinePark.Api.Controllers
 {
@@ -6,16 +10,33 @@ namespace MachinePark.Api.Controllers
     [ApiController]
     public class MachinesController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
+        private readonly IMapper _mapper;
+        private readonly IRepository<Machine> _repository;
+
+        public MachinesController(IRepository<Machine> repository, IMapper mapper)
         {
-            return Ok();
+            _repository = repository;
+            _mapper = mapper;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var machines = await _repository.GetAsync();
+
+            return Ok(_mapper.Map<IEnumerable<MachineDto>>(machines));
         }
 
         [HttpGet("{id:guid}")]
-        public IActionResult GetById(Guid id)
+        public async Task<IActionResult> GetById(Guid id)
         {
-            return Ok();
+            var machine = await _repository.GetByIdAsync(id);
+            if (machine is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<MachineDto>(machine));
         }
     }
 }
