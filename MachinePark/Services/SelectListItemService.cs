@@ -16,28 +16,25 @@ namespace MachinePark.Services
 
         public List<SelectListItem> GetMachineStatuses()
         {
-            var options = Enum.GetValues<MachineStatus>().Select(ms => new SelectListItem
+            var statuses = Enum.GetValues<MachineStatus>();
+            var options = statuses.Select(ms => new SelectListItem
             {
                 Text = ms.ToString(),
                 Value = ms.ToString()
             }).ToList();
 
-            options.Insert(0, new SelectListItem("Choose option", string.Empty, true));
 
             return options;
         }
 
         public List<SelectListItem> GetMachineTypes()
         {
-            var machineTypes = _machineTypeRepository.Get();
-
-            var options = machineTypes.Select(mt => new SelectListItem
+            var types = _machineTypeRepository.Get();
+            var options = types.Select(mt => new SelectListItem
             {
                 Text = mt.Name,
                 Value = mt.Id.ToString()
             }).ToList();
-
-            options.Insert(0, new SelectListItem("Choose option", string.Empty, true));
 
             return options;
         }
