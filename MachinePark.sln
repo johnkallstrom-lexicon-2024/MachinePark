@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachinePark.Persistence", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachinePark.Web", "MachinePark.Web\MachinePark.Web.csproj", "{177EBDFE-379A-4198-8CC8-779FC9652214}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachinePark.Api", "MachinePark.Api\MachinePark.Api.csproj", "{74F63370-DA23-43F5-944F-399A1DEEBFE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachinePark.Api", "MachinePark.Api\MachinePark.Api.csproj", "{74F63370-DA23-43F5-944F-399A1DEEBFE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachinePark.Shared", "MachinePark.Shared\MachinePark.Shared.csproj", "{E20391F8-849D-40CA-9656-FC68EAF35DCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{74F63370-DA23-43F5-944F-399A1DEEBFE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74F63370-DA23-43F5-944F-399A1DEEBFE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74F63370-DA23-43F5-944F-399A1DEEBFE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E20391F8-849D-40CA-9656-FC68EAF35DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E20391F8-849D-40CA-9656-FC68EAF35DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E20391F8-849D-40CA-9656-FC68EAF35DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E20391F8-849D-40CA-9656-FC68EAF35DCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
