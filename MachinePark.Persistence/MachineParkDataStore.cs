@@ -5,9 +5,38 @@ namespace MachinePark.Persistence
 {
     public class MachineParkDataStore
     {
-        public List<Machine> Machines { get; set; }
+        public List<MachineType> MachineTypes { get; set; } = default!;
+        public List<Machine> Machines { get; set; } = default!;
 
         public MachineParkDataStore()
+        {
+            LoadMachines();
+            LoadMachineTypes();
+        }
+
+        private void LoadMachineTypes()
+        {
+            MachineTypes = new List<MachineType>
+            {
+                new MachineType
+                {
+                    Id = 1,
+                    Name = "Excavator"
+                },
+                new MachineType
+                {
+                    Id = 2,
+                    Name = "Wheel Loader"
+                },
+                new MachineType
+                {
+                    Id = 3,
+                    Name = "Dozer"
+                },
+            };
+        }
+
+        private void LoadMachines()
         {
             Machines = new List<Machine>
             {
@@ -29,7 +58,7 @@ namespace MachinePark.Persistence
                     Status = MachineStatus.Offline,
                     Type = new MachineType
                     {
-                        Id = 1,
+                        Id = 2,
                         Name = "Wheel Loader",
                     }
                 },
@@ -40,7 +69,7 @@ namespace MachinePark.Persistence
                     Status = MachineStatus.Offline,
                     Type = new MachineType
                     {
-                        Id = 1,
+                        Id = 3,
                         Name = "Dozer",
                     }
                 }
