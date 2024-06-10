@@ -7,6 +7,8 @@ namespace MachinePark.Domain.Entities
         public Guid Id { get; set; }
         public required string Name { get; set; }
         public MachineStatus Status { get; set; }
-        public MachineType Type { get; set; } = default!;
+
+        public int MachineTypeId { get; set; }
+        public MachineType MachineType { get; set; } = default!;
     }
 }

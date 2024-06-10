@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddPersistenceServices();
+builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddWebServices();
 
 var app = builder.Build();

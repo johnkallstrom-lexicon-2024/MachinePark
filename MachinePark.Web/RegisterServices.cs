@@ -1,6 +1,4 @@
-﻿using MachinePark.Domain.Entities;
-using MachinePark.Web.Services;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace MachinePark
 {
@@ -8,9 +6,6 @@ namespace MachinePark
     {
         public static IServiceCollection AddWebServices(this IServiceCollection services)
         {
-            services.AddScoped<IMachineService, MachineService>();
-            services.AddScoped<IMachineTypeService, MachineTypeService>();
-            services.AddScoped<ISelectListItemService, SelectListItemService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             return services;

@@ -9,7 +9,7 @@ namespace MachinePark.Web.Mappings
         public MappingProfile()
         {
             CreateMap<Machine, MachineViewModel>()
-                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type.Name))
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.MachineType.Name))
                 .ReverseMap();
 
             CreateMap<MachineCreateViewModel, Machine>();

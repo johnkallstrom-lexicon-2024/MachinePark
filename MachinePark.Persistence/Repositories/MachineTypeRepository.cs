@@ -1,25 +1,27 @@
 ﻿using MachinePark.Domain.Abstractions;
 using MachinePark.Domain.Entities;
+using MachinePark.Persistence.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace MachinePark.Persistence.Repositories
 {
     public class MachineTypeRepository : IRepository<MachineType>
     {
-        private readonly MachineParkDataStore _store;
+        private readonly MachineParkDbContext _context;
 
-        public MachineTypeRepository(MachineParkDataStore store)
+        public MachineTypeRepository(MachineParkDbContext context)
         {
-            _store = store;
+            _context = context;
         }
 
-        public IEnumerable<MachineType> Get() => _store.MachineTypes;
+        public async Task<IEnumerable<MachineType>> GetAsync() => await _context.MachineTypes.ToListAsync();
 
-        public MachineType? GetById<T>(T id)
+        public Task<MachineType?> GetByIdAsync<T>(T id)
         {
             throw new NotImplementedException();
         }
 
-        public void Create(MachineType entity)
+        public Task CreateAsync(MachineType entity)
         {
             throw new NotImplementedException();
         }
