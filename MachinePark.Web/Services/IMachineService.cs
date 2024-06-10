@@ -1,6 +1,6 @@
-﻿using MachinePark.Features.Machines.ViewModels;
+﻿using MachinePark.Web.Features.Machines.ViewModels;
 
-namespace MachinePark.Services
+namespace MachinePark.Web.Services
 {
     public interface IMachineService
     {

@@ -1,6 +1,6 @@
 using MachinePark;
-using MachinePark.Features;
 using MachinePark.Persistence;
+using MachinePark.Web.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 

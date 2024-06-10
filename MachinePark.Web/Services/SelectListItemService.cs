@@ -3,7 +3,7 @@ using MachinePark.Domain.Entities;
 using MachinePark.Domain.Enums;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace MachinePark.Services
+namespace MachinePark.Web.Services
 {
     public class SelectListItemService : ISelectListItemService
     {

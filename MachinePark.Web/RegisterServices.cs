@@ -1,5 +1,5 @@
 ﻿using MachinePark.Domain.Entities;
-using MachinePark.Services;
+using MachinePark.Web.Services;
 using System.Reflection;
 
 namespace MachinePark

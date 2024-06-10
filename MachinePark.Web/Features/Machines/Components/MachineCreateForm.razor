@@ -1,6 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Rendering
 @rendermode InteractiveServer
-@inject ISelectListItemService SelectService
 
 <div class="card shadow border-0">
     <div class="card-body">
@@ -17,21 +16,11 @@
             </div>
             <div class="mb-3">
                 <label for="@Model.Status" class="form-label">Status</label>
-                <InputSelect @bind-Value=Model.Status class="form-control">
-                    @foreach (var option in SelectService.GetMachineStatuses())
-                    {
-                        <option value="@option.Value">@option.Text</option>
-                    }
-                </InputSelect>
+                <InputSelect @bind-Value=Model.Status class="form-control"></InputSelect>
             </div>
             <div class="mb-3">
                 <label for="@Model.MachineTypeId" class="form-label">Type</label>
-                <InputSelect @bind-Value=Model.MachineTypeId class="form-control">
-                    @foreach (var option in SelectService.GetMachineTypes())
-                    {
-                        <option value="@option.Value">@option.Text</option>                        
-                    }
-                </InputSelect>
+                <InputSelect @bind-Value=Model.MachineTypeId class="form-control"></InputSelect>
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
             <ReturnButton Label="Cancel" ReturnUrl="/dashboard" />
@@ -43,14 +32,7 @@
     [Parameter]
     public string? Title { get; set; }
 
-    [Inject]
-    public IMachineTypeService MachineTypeService { get; set; } = default!;
-
     public MachineCreateViewModel Model { get; set; } = new();
-
-    protected override void OnInitialized()
-    {
-    }
 
     private void Submit()
     {

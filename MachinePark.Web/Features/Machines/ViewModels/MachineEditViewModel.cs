@@ -1,7 +1,7 @@
 ﻿using MachinePark.Domain.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace MachinePark.Features.Machines.ViewModels
+namespace MachinePark.Web.Features.Machines.ViewModels
 {
     public record MachineEditViewModel
     {

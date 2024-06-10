@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using MachinePark.Domain.Entities;
-using MachinePark.Features.Machines.ViewModels;
+using MachinePark.Web.Features.Machines.ViewModels;
 
-namespace MachinePark.Mappings
+namespace MachinePark.Web.Mappings
 {
     public class MappingProfile : Profile
     {

@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MachinePark.Domain.Abstractions;
 using MachinePark.Domain.Entities;
-using MachinePark.Features.Machines.ViewModels;
+using MachinePark.Web.Features.Machines.ViewModels;
 
-namespace MachinePark.Services
+namespace MachinePark.Web.Services
 {
     public class MachineService : IMachineService
     {

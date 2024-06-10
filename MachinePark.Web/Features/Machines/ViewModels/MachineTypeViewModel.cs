@@ -1,4 +1,4 @@
-﻿namespace MachinePark.Features.Machines.ViewModels
+﻿namespace MachinePark.Web.Features.Machines.ViewModels
 {
     public record MachineTypeViewModel
     {

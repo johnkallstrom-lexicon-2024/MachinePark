@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace MachinePark.Services
+namespace MachinePark.Web.Services
 {
     public interface ISelectListItemService
     {
