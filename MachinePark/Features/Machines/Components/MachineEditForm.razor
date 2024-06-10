@@ -1,5 +1,4 @@
 ﻿@rendermode InteractiveServer
-@inject NavigationManager NavigationManager
 
 <div class="card shadow border-0">
     <div class="card-body">
@@ -28,7 +27,7 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
-            <button type="button" class="btn btn-danger" @onclick="@(() => NavigationManager.NavigateTo("/dashboard"))">Cancel</button>
+            <ReturnButton Label="Cancel" ReturnUrl="/dashboard" />
         </form>
     </div>
 </div>

@@ -6,29 +6,25 @@
         {
             <h5 class="mb-3">@Title</h5>
         }
-        <form method="post">
+        <EditForm Model="Model" OnValidSubmit="Submit">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
             <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" />
+                <label for="@Model.Name" class="form-label">Name</label>
+                <InputText @bind-Value=Model.Name class="form-control" />
             </div>
             <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <select class="form-control">
-                    <option>Online</option>
-                    <option>Offline</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="status" class="form-label">Type</label>
-                <select class="form-control">
-                    <option>Excavator</option>
-                    <option>Wheel Loader</option>
-                    <option>Dozer</option>
-                </select>
+                <InputSelect @bind-Value=Model.Status class="form-control">
+                    @foreach (var option in Enum.GetValues<MachineStatus>())
+                    {
+                        <option value="@option">@option</option>
+                    }
+                </InputSelect>
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
             <ReturnButton Label="Cancel" ReturnUrl="/dashboard" />
-        </form>
+        </EditForm>
     </div>
 </div>
 
@@ -36,5 +32,11 @@
     [Parameter]
     public string? Title { get; set; }
 
-    public MachineCreateViewModel Model { get; set; } = default!;
+    public MachineCreateViewModel Model { get; set; } = new();
+
+    private void Submit()
+    {
+        Console.WriteLine($"Name: {Model.Name}");
+        Console.WriteLine($"Status: {Model.Status}");
+    }
 }
