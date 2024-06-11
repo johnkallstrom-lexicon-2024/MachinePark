@@ -38,5 +38,19 @@ namespace MachinePark.Api.Controllers
 
             return Ok(_mapper.Map<MachineDto>(machine));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] MachineCreateDto dto)
+        {
+            if (dto is null)
+            {
+                return BadRequest();
+            }
+
+            var machine = _mapper.Map<Machine>(dto);
+            var createdMachine = await _repository.CreateAsync(machine);
+
+            return CreatedAtAction(nameof(GetById), new { createdMachine.Id }, createdMachine);
+        }
     }
 }

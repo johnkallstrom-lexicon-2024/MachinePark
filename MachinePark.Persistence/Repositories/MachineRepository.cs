@@ -32,15 +32,17 @@ namespace MachinePark.Persistence.Repositories
             return machine;
         }
 
-        public async Task CreateAsync(Machine machine)
+        public async Task<Machine> CreateAsync(Machine machine)
         {
             if (machine is null)
             {
                 throw new ArgumentNullException(nameof(machine));
             }
 
-            await _context.Machines.AddAsync(machine);
+            var entry = await _context.Machines.AddAsync(machine);
             await _context.SaveChangesAsync();
+
+            return entry.Entity;
         }
     }
 }
