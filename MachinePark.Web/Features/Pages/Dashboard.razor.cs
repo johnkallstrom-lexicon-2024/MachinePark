@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using MachinePark.Web.Http.Services;
+using Microsoft.AspNetCore.Components;
 
 namespace MachinePark.Web.Features.Pages
 {
