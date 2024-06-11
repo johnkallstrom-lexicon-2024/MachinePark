@@ -10,9 +10,6 @@ namespace MachinePark.Web.Features.Machines.Pages
         [Inject]
         public IHttpService HttpService { get; set; } = default!;
 
-        [Parameter]
-        public string? Title { get; set; }
-
         public MachineCreateDto Model { get; set; } = new();
 
         private async Task Submit()
