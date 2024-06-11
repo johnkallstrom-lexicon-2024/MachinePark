@@ -1,45 +1,45 @@
 ﻿namespace MachinePark.Web.Http
 {
-    public class Result : IResult
+    public class Result
     {
-        public bool Success { get; set; }
+        public bool Succeeded { get; set; }
 
-        public static IResult Succeeded()
+        public static Result Success()
         {
             return new Result
             {
-                Success = true,
+                Succeeded = true,
             };
         }
 
-        public static IResult Failure()
+        public static Result Failure()
         {
             return new Result
             {
-                Success = false,
+                Succeeded = false,
             };
         }
     }
 
-    public class Result<TData> : IResult
+    public class Result<TData>
     {
-        public bool Success { get; set; }
+        public bool Succeeded { get; set; }
         public TData Data { get; set; } = default!;
 
-        public static IResult Succeeded(TData data)
+        public static Result<TData> Success(TData data)
         {
             return new Result<TData>
             {
-                Success = true,
+                Succeeded = true,
                 Data = data,
             };
         }
 
-        public static IResult Failure()
+        public static Result<TData> Failure()
         {
             return new Result<TData>
             {
-                Success = false,
+                Succeeded = false,
             };
         }
     }

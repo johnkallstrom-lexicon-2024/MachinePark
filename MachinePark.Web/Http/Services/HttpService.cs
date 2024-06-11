@@ -9,7 +9,7 @@
             _httpClient = httpClient;
         }
 
-        public async Task<IResult> GetAsync<TData>(string url)
+        public async Task<Result<TData>> GetAsync<TData>(string url)
         {
             var httpResponse = await _httpClient.GetAsync(url);
             if (httpResponse.IsSuccessStatusCode)
@@ -17,26 +17,26 @@
                 var json = await httpResponse.Content.ReadFromJsonAsync<TData>();
                 if (json != null)
                 {
-                    return Result<TData>.Succeeded(json);
+                    return Result<TData>.Success(json);
                 }
             }
 
-            return Result.Failure();
+            return Result<TData>.Failure();
 
         }
 
-        public async Task<IResult> PostAsync(string url, object value)
+        public async Task<Result> PostAsync(string url, object value)
         {
             var httpResponse = await _httpClient.PostAsJsonAsync(url, value);
             if (httpResponse.IsSuccessStatusCode)
             {
-                return Result.Succeeded();
+                return Result.Success();
             }
 
             return Result.Failure();
         }
 
-        public async Task<IResult> PostAsync<TData>(string url, object value)
+        public async Task<Result<TData>> PostAsync<TData>(string url, object value)
         {
             var httpResponse = await _httpClient.PostAsJsonAsync(url, value);
             if (httpResponse.IsSuccessStatusCode)
@@ -44,11 +44,11 @@
                 var json = await httpResponse.Content.ReadFromJsonAsync<TData>();
                 if (json != null)
                 {
-                    return Result<TData>.Succeeded(json);
+                    return Result<TData>.Success(json);
                 }
             }
 
-            return Result.Failure();
+            return Result<TData>.Failure();
         }
     }
 }
