@@ -50,5 +50,16 @@
 
             return Result<TData>.Failure();
         }
+
+        public async Task<Result> DeleteAsync(string url)
+        {
+            var httpResponse = await _httpClient.DeleteAsync(url);
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                return Result.Success();
+            }
+
+            return Result.Failure();
+        }
     }
 }
