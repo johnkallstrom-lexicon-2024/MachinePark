@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-
-namespace MachinePark.Web.Features.Machines.Pages
+﻿namespace MachinePark.Web.Features.Machines.Pages
 {
     public partial class Create
     {
