@@ -52,5 +52,17 @@ namespace MachinePark.Api.Controllers
 
             return CreatedAtAction(nameof(GetById), new { createdMachine.Id }, createdMachine);
         }
+
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> Delete([FromQuery] Guid id)
+        {
+            var machine = await _repository.GetByIdAsync(id);
+            if (machine is null)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
+        }
     }
 }
