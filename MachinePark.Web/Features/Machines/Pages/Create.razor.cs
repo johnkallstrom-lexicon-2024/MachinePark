@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace MachinePark.Web.Features.Machines.Components
+namespace MachinePark.Web.Features.Machines.Pages
 {
-    public partial class MachineCreateForm
+    public partial class Create
     {
         [Inject]
         public NavigationManager NavigationManager { get; set; } = default!;
