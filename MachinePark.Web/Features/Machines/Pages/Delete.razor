@@ -1,12 +1,17 @@
 ﻿@page "/machines/delete/{id:guid}"
+@rendermode InteractiveServer
 
 <PageTitle>Machine Park - Delete Machine</PageTitle>
 
 <div class="card shadow border-0">
     <div class="card-body">
-        <h5>Delete Confirmation</h5>
+        <h5 class="mb-3">Delete Confirmation</h5>
+        <ul>
+            <li>@MachineToDelete.Name</li>
+            <li>@MachineToDelete.Type</li>
+        </ul>
         <p>Are you sure you want to delete this machine?</p>
-        <button class="btn btn-primary">Delete</button>
+        <button class="btn btn-primary" @onclick=DeleteMachine>Delete</button>
         <ReturnButton Label="Cancel" ReturnUrl="/dashboard" />
     </div>
 </div>

@@ -11,9 +11,20 @@
         [Parameter]
         public Guid Id { get; set; }
 
-        protected override async Task OnInitializedAsync()
+        public MachineDto MachineToDelete { get; set; } = new();
+
+        protected override async Task OnParametersSetAsync()
         {
-            var result = await HttpService.DeleteAsync($"{Endpoints.Machines}/{Id}");
+            var result = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
+            if (result.Succeeded)
+            {
+                MachineToDelete = result.Data;
+            }
+        }
+
+        private async Task DeleteMachine()
+        {
+            var result = await HttpService.DeleteAsync(Endpoints.Machines);
             if (result.Succeeded)
             {
                 NavigationManager.NavigateTo("/dashboard");
