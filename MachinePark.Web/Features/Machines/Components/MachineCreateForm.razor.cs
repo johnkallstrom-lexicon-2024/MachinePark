@@ -1,10 +1,12 @@
-﻿using MachinePark.Web.Http.Services;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 
 namespace MachinePark.Web.Features.Machines.Components
 {
     public partial class MachineCreateForm
     {
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
+
         [Inject]
         public IHttpService HttpService { get; set; } = default!;
 
@@ -15,6 +17,11 @@ namespace MachinePark.Web.Features.Machines.Components
 
         private async Task Submit()
         {
+            var result = await HttpService.PostAsync(Endpoints.Machines, Model);
+            if (result.Succeeded)
+            {
+                NavigationManager.NavigateTo("/dashboard");
+            }
         }
     }
 }
