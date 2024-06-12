@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-
-namespace MachinePark.Web.Features.Pages
+﻿namespace MachinePark.Web.Features.Pages
 {
     public partial class Dashboard
     {
@@ -15,10 +13,6 @@ namespace MachinePark.Web.Features.Pages
             if (result.Succeeded)
             {
                 Machines = result.Data;
-            }
-            else
-            {
-                // Display error messages
             }
         }
     }
