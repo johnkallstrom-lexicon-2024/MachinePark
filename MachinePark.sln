@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachinePark.Web", "MachineP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachinePark.Api", "MachinePark.Api\MachinePark.Api.csproj", "{74F63370-DA23-43F5-944F-399A1DEEBFE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachinePark.Shared", "MachinePark.Shared\MachinePark.Shared.csproj", "{E20391F8-849D-40CA-9656-FC68EAF35DCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachinePark.Shared", "MachinePark.Shared\MachinePark.Shared.csproj", "{E20391F8-849D-40CA-9656-FC68EAF35DCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
