@@ -14,6 +14,6 @@ namespace MachinePark.Shared.Models
         public MachineStatus Status { get; set; }
 
         [Required]
-        public int MachineTypeId { get; set; }
+        public int MachineTypeId { get; set; } = 1;
     }
 }
