@@ -24,11 +24,12 @@
             </div>
             <div class="mb-3">
                 <label for="@Model.MachineTypeId" class="form-label">Type</label>
-                <select class="form-control">
-                    <option value="1">Excavator</option>
-                    <option value="2">Wheel Loader</option>
-                    <option value="3">Dozer</option>
-                </select>
+                <InputSelect @bind-Value="Model.MachineTypeId" class="form-control">
+                    @foreach (var machineType in MachineTypes)
+                    {
+                        <option value="@machineType.Id">@machineType.Name</option>
+                    }
+                </InputSelect>
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
             <ReturnButton Label="Cancel" ReturnUrl="/dashboard" />
