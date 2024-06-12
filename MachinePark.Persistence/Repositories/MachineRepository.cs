@@ -44,5 +44,17 @@ namespace MachinePark.Persistence.Repositories
 
             return entry.Entity;
         }
+
+        public async Task UpdateAsync(Machine machine)
+        {
+            _context.Machines.Update(machine);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(Machine machine)
+        {
+            _context.Machines.Remove(machine);
+            await _context.SaveChangesAsync();
+        }
     }
 }

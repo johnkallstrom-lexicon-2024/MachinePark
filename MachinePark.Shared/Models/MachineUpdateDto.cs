@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MachinePark.Shared.Models
 {
-    public record MachineEditDto
+    public record MachineUpdateDto
     {
         [Required]
         [MaxLength(50)]

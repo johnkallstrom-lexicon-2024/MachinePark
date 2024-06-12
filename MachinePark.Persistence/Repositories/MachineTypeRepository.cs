@@ -25,5 +25,15 @@ namespace MachinePark.Persistence.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public Task UpdateAsync(MachineType entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(MachineType entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
