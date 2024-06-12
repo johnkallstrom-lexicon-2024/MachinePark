@@ -14,6 +14,8 @@ namespace MachinePark.Api.Mappings
 
             CreateMap<MachineCreateDto, Machine>();
             CreateMap<MachineEditDto, Machine>().ReverseMap();
+
+            CreateMap<MachineType, MachineTypeDto>().ReverseMap();
         }
     }
 }

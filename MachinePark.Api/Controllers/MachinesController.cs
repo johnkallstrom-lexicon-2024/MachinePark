@@ -53,6 +53,12 @@ namespace MachinePark.Api.Controllers
             return CreatedAtAction(nameof(GetById), new { createdMachine.Id }, createdMachine);
         }
 
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update()
+        {
+            return NoContent();
+        }
+
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete([FromQuery] Guid id)
         {
