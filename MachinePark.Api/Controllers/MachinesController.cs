@@ -54,8 +54,14 @@ namespace MachinePark.Api.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> Update()
+        public async Task<IActionResult> Update([FromQuery] Guid id)
         {
+            var machine = await _repository.GetByIdAsync(id);
+            if (machine is null)
+            {
+                return NotFound();
+            }
+
             return NoContent();
         }
 
