@@ -54,13 +54,17 @@ namespace MachinePark.Api.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> Update([FromQuery] Guid id)
+        public async Task<IActionResult> Update([FromQuery] Guid id, MachineUpdateDto dto)
         {
             var machine = await _repository.GetByIdAsync(id);
             if (machine is null)
             {
                 return NotFound();
             }
+
+            machine = _mapper.Map(source: dto, destination: machine);
+
+            await _repository.UpdateAsync(machine);
 
             return NoContent();
         }
@@ -73,6 +77,8 @@ namespace MachinePark.Api.Controllers
             {
                 return NotFound();
             }
+
+            await _repository.DeleteAsync(machine);
 
             return NoContent();
         }
