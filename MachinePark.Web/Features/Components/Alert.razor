@@ -1,0 +1,40 @@
+﻿@switch (Color)
+{
+    case AlertColor.Default:
+        <div class="alert alert-light alert-dismissible">
+            <span>@Message</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        break;
+    case AlertColor.Success:
+        <div class="alert alert-success alert-dismissible">
+            <span>@Message</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        break;
+    case AlertColor.Warning:
+        <div class="alert alert-warning alert-dismissible">
+            <span>@Message</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        break;
+    case AlertColor.Danger:
+        <div class="alert alert-danger alert-dismissible">
+            <span>@Message</span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        break;
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public string Message { get; set; } = default!;
+
+    [Parameter]
+    public AlertColor Color { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+    }
+}
