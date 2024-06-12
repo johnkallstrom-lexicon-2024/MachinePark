@@ -54,7 +54,7 @@ namespace MachinePark.Api.Controllers
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> Update([FromQuery] Guid id, MachineUpdateDto dto)
+        public async Task<IActionResult> Update(Guid id, MachineUpdateDto dto)
         {
             var machine = await _repository.GetByIdAsync(id);
             if (machine is null)
@@ -70,7 +70,7 @@ namespace MachinePark.Api.Controllers
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> Delete([FromQuery] Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
             var machine = await _repository.GetByIdAsync(id);
             if (machine is null)

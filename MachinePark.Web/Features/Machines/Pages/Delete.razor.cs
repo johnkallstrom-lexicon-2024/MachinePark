@@ -24,7 +24,7 @@
 
         private async Task DeleteMachine()
         {
-            var result = await HttpService.DeleteAsync(Endpoints.Machines);
+            var result = await HttpService.DeleteAsync($"{Endpoints.Machines}/{Id}");
             if (result.Succeeded)
             {
                 NavigationManager.NavigateTo("/dashboard");
