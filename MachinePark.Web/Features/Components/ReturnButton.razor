@@ -3,9 +3,9 @@
 <button type="button" class="btn btn-danger" @onclick="@(() => NavigationManager.NavigateTo(ReturnUrl))">@Label</button>
 
 @code {
-    [Parameter]
-    public required string Label { get; set; }
+    [Parameter, EditorRequired]
+    public string Label { get; set; } = default!;
 
-    [Parameter]
-    public required string ReturnUrl { get; set; }
+    [Parameter, EditorRequired]
+    public string ReturnUrl { get; set; } = default!;
 }
