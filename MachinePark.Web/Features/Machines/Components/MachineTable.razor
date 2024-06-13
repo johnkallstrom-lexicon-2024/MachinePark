@@ -1,7 +1,14 @@
-﻿<div class="card shadow border-0">
+﻿@rendermode InteractiveServer
+
+<div class="card shadow border-0">
     <div class="card-body">
         <h5 class="d-inline">Machines</h5>
-        <a href="@("/machines/create")" class="btn btn-success float-end">New</a>
+        <button class="btn btn-sm btn-primary float-end" @onclick=Refresh>
+            <i class="bi bi-arrow-clockwise"></i>
+        </button>
+        <a href="@("/machines/create")" class="btn btn-sm btn-success float-end me-2">
+            <i class="bi bi-plus-circle"></i>
+        </a>
         <table class="table">
             <thead>
                 <tr>
@@ -13,9 +20,9 @@
                 </tr>
             </thead>
             <tbody>
-                @if (Data != null)
+                @if (Model != null)
                 {
-                    @foreach (var machine in Data)
+                    @foreach (var machine in Model)
                     {
                         <tr>
                             <td>@machine.Id</td>
@@ -47,8 +54,3 @@
         </table>
     </div>
 </div>
-
-@code {
-    [Parameter]
-    public IEnumerable<MachineDto> Data { get; set; } = [];
-}
