@@ -11,12 +11,17 @@
         [Parameter]
         public Guid Id { get; set; }
 
-        public MachineDto MachineToDelete { get; set; } = new();
+        public MachineDto MachineToDelete { get; set; } = default!;
 
-        protected override async Task OnParametersSetAsync()
+        protected override async Task OnInitializedAsync()
+        {
+            await GetMachine();
+        }
+
+        private async Task GetMachine()
         {
             var result = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
-            if (result.Succeeded)
+            if (result.Succeeded && result.Data != null)
             {
                 MachineToDelete = result.Data;
             }
