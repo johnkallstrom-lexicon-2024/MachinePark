@@ -18,21 +18,13 @@
 
         protected override async Task OnInitializedAsync()
         {
+            await GetMachine();
             await GetMachineTypes();
-        }
-
-        private async Task Submit()
-        {
-            var result = await HttpService.PutAsync($"{Endpoints.Machines}/{Id}", Model);
-            if (result.Succeeded)
-            {
-                NavigationManager.NavigateTo("/dashboard");
-            }
         }
 
         private async Task GetMachine()
         {
-            var result = await HttpService.GetAsync<MachineDto>(Endpoints.Machines);
+            var result = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
             if (result.Succeeded && result.Data != null)
             {
                 Model.Name = result.Data.Name;
@@ -47,6 +39,15 @@
             if (result.Succeeded)
             {
                 MachineTypes = result.Data;
+            }
+        }
+
+        private async Task Submit()
+        {
+            var result = await HttpService.PutAsync($"{Endpoints.Machines}/{Id}", Model);
+            if (result.Succeeded)
+            {
+                NavigationManager.NavigateTo("/dashboard");
             }
         }
     }
