@@ -51,6 +51,17 @@
             return Result<TData>.Failure();
         }
 
+        public async Task<Result> PutAsync(string url, object value)
+        {
+            var httpResponse = await _httpClient.PutAsJsonAsync(url, value);
+            if (httpResponse.IsSuccessStatusCode)
+            {
+                return Result.Success();
+            }
+
+            return Result.Failure();
+        }
+
         public async Task<Result> DeleteAsync(string url)
         {
             var httpResponse = await _httpClient.DeleteAsync(url);
