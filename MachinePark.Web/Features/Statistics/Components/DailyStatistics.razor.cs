@@ -12,6 +12,11 @@
             await GetStatistics();
         }
 
+        private async Task Refresh()
+        {
+            await GetStatistics();
+        }
+
         private async Task GetStatistics()
         {
             var result = await HttpService.GetAsync<StatisticsDto>(Endpoints.Statistics);
