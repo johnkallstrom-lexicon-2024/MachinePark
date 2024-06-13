@@ -31,9 +31,9 @@
                                         break;
                                 }
                             </td>
-                            <td>@machine.Type</td>
+                            <td>@machine.Type.Name</td>
                             <td>
-                                <a href="@($"/machines/edit/{machine.Id}")" class="btn btn-sm btn-primary">
+                                <a href="@($"/machines/update/{machine.Id}")" class="btn btn-sm btn-primary">
                                     <i class="bi bi-pencil"></i>
                                 </a>
                                 <a href="@($"/machines/delete/{machine.Id}")" class="btn btn-sm btn-danger">
@@ -50,5 +50,5 @@
 
 @code {
     [Parameter]
-    public IEnumerable<MachineDto>? Data { get; set; } = [];
+    public IEnumerable<MachineDto> Data { get; set; } = [];
 }

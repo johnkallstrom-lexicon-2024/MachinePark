@@ -8,10 +8,7 @@ namespace MachinePark.Api.Mappings
     {
         public MappingProfile()
         {
-            CreateMap<Machine, MachineDto>()
-                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.MachineType.Name))
-                .ReverseMap();
-
+            CreateMap<Machine, MachineDto>().ReverseMap();
             CreateMap<MachineCreateDto, Machine>();
             CreateMap<MachineUpdateDto, Machine>().ReverseMap();
 
