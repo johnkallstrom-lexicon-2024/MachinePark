@@ -32,7 +32,7 @@
             var result = await HttpService.DeleteAsync($"{Endpoints.Machines}/{Id}");
             if (result.Succeeded)
             {
-                NavigationManager.NavigateTo("/dashboard");
+                NavigationManager.NavigateTo("/dashboard", forceLoad: true);
             }
         }
     }

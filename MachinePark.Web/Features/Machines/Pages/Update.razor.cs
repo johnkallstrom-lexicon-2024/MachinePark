@@ -47,7 +47,7 @@
             var result = await HttpService.PutAsync($"{Endpoints.Machines}/{Id}", Model);
             if (result.Succeeded)
             {
-                NavigationManager.NavigateTo("/dashboard");
+                NavigationManager.NavigateTo("/dashboard", forceLoad: true);
             }
         }
     }

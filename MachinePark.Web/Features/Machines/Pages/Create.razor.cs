@@ -22,7 +22,7 @@
             var result = await HttpService.PostAsync(Endpoints.Machines, Model);
             if (result.Succeeded)
             {
-                NavigationManager.NavigateTo("/dashboard");
+                NavigationManager.NavigateTo("/dashboard", forceLoad: true);
             }
         }
 
