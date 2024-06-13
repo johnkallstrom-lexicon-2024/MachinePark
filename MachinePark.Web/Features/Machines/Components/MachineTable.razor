@@ -1,4 +1,4 @@
-﻿@rendermode InteractiveServer
+﻿@rendermode @(new InteractiveServerRenderMode(prerender: false))
 
 @if (Errors != null && Errors.Count() > 0)
 {
@@ -13,48 +13,55 @@
         <a href="@("/machines/create")" class="btn btn-sm btn-success float-end me-2">
             <i class="bi bi-plus-circle"></i>
         </a>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Manage</th>
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model != null)
-                {
-                    @foreach (var machine in Model)
+        @if (Loading)
+        {
+            <Spinner />
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
                     {
-                        <tr>
-                            <td>@machine.Id</td>
-                            <td>@machine.Name</td>
-                            <td>
-                                @switch (machine.Status)
-                                {
-                                    case MachineStatus.Online:
-                                        <span class="badge text-bg-success">@machine.Status</span>
-                                        break;
-                                    case MachineStatus.Offline:
-                                        <span class="badge text-bg-light">@machine.Status</span>
-                                        break;
-                                }
-                            </td>
-                            <td>@machine.Type.Name</td>
-                            <td>
-                                <a href="@($"/machines/update/{machine.Id}")" class="btn btn-sm btn-primary">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
-                                <a href="@($"/machines/delete/{machine.Id}")" class="btn btn-sm btn-danger">
-                                    <i class="bi bi-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        @foreach (var machine in Model)
+                        {
+                            <tr>
+                                <td>@machine.Id</td>
+                                <td>@machine.Name</td>
+                                <td>
+                                    @switch (machine.Status)
+                                    {
+                                        case MachineStatus.Online:
+                                            <span class="badge text-bg-success">@machine.Status</span>
+                                            break;
+                                        case MachineStatus.Offline:
+                                            <span class="badge text-bg-light">@machine.Status</span>
+                                            break;
+                                    }
+                                </td>
+                                <td>@machine.Type.Name</td>
+                                <td>
+                                    <a href="@($"/machines/update/{machine.Id}")" class="btn btn-sm btn-primary">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <a href="@($"/machines/delete/{machine.Id}")" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
                     }
-                }
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        }
     </div>
 </div>
