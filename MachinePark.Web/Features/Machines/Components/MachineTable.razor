@@ -1,5 +1,9 @@
 ﻿@rendermode InteractiveServer
 
+@if (Errors != null && Errors.Count() > 0)
+{
+    <Alert Errors="Errors" Color="AlertColor.Danger" />
+}
 <div class="card shadow border-0">
     <div class="card-body">
         <h5 class="d-inline">Machines</h5>

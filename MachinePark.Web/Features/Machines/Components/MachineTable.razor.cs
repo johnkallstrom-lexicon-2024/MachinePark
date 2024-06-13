@@ -5,8 +5,22 @@
         [Inject]
         public IHttpService HttpService { get; set; } = default!;
 
-        [Parameter]
         public IEnumerable<MachineDto> Model { get; set; } = [];
+
+        public string[] Errors { get; set; } = default!;
+
+        protected override async Task OnInitializedAsync()
+        {
+            var result = await HttpService.GetAsync<IEnumerable<MachineDto>>(Endpoints.Machines);
+            if (result.Succeeded)
+            {
+                Model = result.Data;
+            }
+            else
+            {
+                Errors = result.Errors;
+            }
+        }
 
         private async Task Refresh()
         {
@@ -14,6 +28,10 @@
             if (result.Succeeded)
             {
                 Model = result.Data;
+            }
+            else
+            {
+                Errors = result.Errors;
             }
         }
     }
