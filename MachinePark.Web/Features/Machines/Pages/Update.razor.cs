@@ -30,6 +30,17 @@
             }
         }
 
+        private async Task GetMachine()
+        {
+            var result = await HttpService.GetAsync<MachineDto>(Endpoints.Machines);
+            if (result.Succeeded && result.Data != null)
+            {
+                Model.Name = result.Data.Name;
+                Model.Status = result.Data.Status;
+                Model.MachineTypeId = result.Data.Type.Id;
+            }
+        }
+
         private async Task GetMachineTypes()
         {
             var result = await HttpService.GetAsync<IEnumerable<MachineTypeDto>>(Endpoints.MachineTypes);
