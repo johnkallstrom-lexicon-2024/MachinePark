@@ -12,5 +12,8 @@ namespace MachinePark.Shared.Models
         [Required]
         [EnumDataType(typeof(MachineStatus))]
         public MachineStatus Status { get; set; }
+
+        [Required]
+        public int MachineTypeId { get; set; } = 1;
     }
 }
