@@ -2,18 +2,14 @@
 
 <Navbar />
 <div class="container py-3">
-    <div class="row">
-        <div class="col-sm-4 col-xl-3">
-            <DailyStatistics />
+    <ErrorBoundary>
+        <div class="row">
+            <div class="col-sm-4 col-xl-3">
+                <DailyStatistics />
+            </div>
+            <div class="col-sm-8 col-xl-9">
+                @Body
+            </div>
         </div>
-        <div class="col-sm-8 col-xl-9">
-            @Body
-        </div>
-    </div>
-</div>
-
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
+    </ErrorBoundary>
 </div>
