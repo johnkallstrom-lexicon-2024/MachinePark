@@ -24,17 +24,24 @@
         {
             Loading = true;
 
-            var result = await HttpService.GetAsync<IEnumerable<MachineDto>>(Endpoints.Machines);
-            if (result.Succeeded)
+            try
             {
-                Model = result.Data;
-                Loading = false;
+                var result = await HttpService.GetAsync<IEnumerable<MachineDto>>(Endpoints.Machines);
+                if (result.Succeeded)
+                {
+                    Model = result.Data;
+                }
+                else
+                {
+                    Errors = result.Errors;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Errors = result.Errors;
-                Loading = false;
+                Errors = [ex.Message];
             }
+
+            Loading = false;
         }
     }
 }

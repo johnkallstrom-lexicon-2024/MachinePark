@@ -24,17 +24,24 @@
         {
             Loading = true;
 
-            var result = await HttpService.GetAsync<StatisticsDto>(Endpoints.Statistics);
-            if (result.Succeeded)
+            try
             {
-                Model = result.Data;
-                Loading = false;
+                var result = await HttpService.GetAsync<StatisticsDto>(Endpoints.Statistics);
+                if (result.Succeeded)
+                {
+                    Model = result.Data;
+                }
+                else
+                {
+                    Errors = result.Errors;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Errors = result.Errors;
-                Loading = false;
+                Errors = [ex.Message];
             }
+
+            Loading = false;
         }
     }
 }

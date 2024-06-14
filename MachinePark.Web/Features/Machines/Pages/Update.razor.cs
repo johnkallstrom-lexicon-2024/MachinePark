@@ -24,12 +24,19 @@
 
         private async Task GetMachine()
         {
-            var result = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
-            if (result.Succeeded && result.Data != null)
+            try
             {
-                Model.Name = result.Data.Name;
-                Model.Status = result.Data.Status;
-                Model.MachineTypeId = result.Data.Type.Id;
+                var result = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
+                if (result.Succeeded)
+                {
+                    Model.Name = result.Data.Name;
+                    Model.Status = result.Data.Status;
+                    Model.MachineTypeId = result.Data.Type.Id;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 

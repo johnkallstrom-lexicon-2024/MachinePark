@@ -20,10 +20,17 @@
 
         private async Task GetMachine()
         {
-            var result = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
-            if (result.Succeeded && result.Data != null)
+            try
             {
-                MachineToDelete = result.Data;
+                var result = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
+                if (result.Succeeded && result.Data != null)
+                {
+                    MachineToDelete = result.Data;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 

@@ -13,26 +13,19 @@ namespace MachinePark.Web.Http.Services
 
         public async Task<Result<TData>> GetAsync<TData>(string url)
         {
-            try
+            var httpResponse = await _httpClient.GetAsync(url);
+            if (httpResponse.IsSuccessStatusCode)
             {
-                var httpResponse = await _httpClient.GetAsync(url);
-                if (httpResponse.IsSuccessStatusCode)
+                var data = await httpResponse.Content.ReadFromJsonAsync<TData>();
+                if (data != null)
                 {
-                    var json = await httpResponse.Content.ReadFromJsonAsync<TData>();
-                    if (json != null)
-                    {
-                        return Result<TData>.Success(json);
-                    }
-                }
-                else
-                {
-                    var info = httpResponse.ExtractInformation().Values.ToArray();
-                    return Result<TData>.Failure(info);
+                    return Result<TData>.Success(data);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                return Result<TData>.Failure([ex.Message]);
+                var info = httpResponse.ExtractInformation().Values.ToArray();
+                return Result<TData>.Failure(info);
             }
 
             return Result<TData>.Failure();

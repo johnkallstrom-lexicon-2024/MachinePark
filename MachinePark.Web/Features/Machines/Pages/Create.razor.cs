@@ -28,10 +28,17 @@
 
         private async Task GetMachineTypes()
         {
-            var result = await HttpService.GetAsync<IEnumerable<MachineTypeDto>>(Endpoints.MachineTypes);
-            if (result.Succeeded)
+            try
             {
-                MachineTypes = result.Data;
+                var result = await HttpService.GetAsync<IEnumerable<MachineTypeDto>>(Endpoints.MachineTypes);
+                if (result.Succeeded)
+                {
+                    MachineTypes = result.Data;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
