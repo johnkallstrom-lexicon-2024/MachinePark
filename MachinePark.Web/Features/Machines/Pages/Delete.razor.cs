@@ -11,7 +11,7 @@
         [Parameter]
         public Guid Id { get; set; }
 
-        public MachineDto MachineToDelete { get; set; } = default!;
+        public MachineDto Model { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
@@ -20,27 +20,17 @@
 
         private async Task GetMachine()
         {
-            try
+            var machine = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
+            if (machine != null)
             {
-                var result = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
-                if (result.Succeeded && result.Data != null)
-                {
-                    MachineToDelete = result.Data;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                Model = machine;
             }
         }
 
         private async Task DeleteMachine()
         {
-            var result = await HttpService.DeleteAsync($"{Endpoints.Machines}/{Id}");
-            if (result.Succeeded)
-            {
-                NavigationManager.NavigateTo("/dashboard", forceLoad: true);
-            }
+            await HttpService.DeleteAsync($"{Endpoints.Machines}/{Id}");
+            NavigationManager.NavigateTo("/dashboard", forceLoad: true);
         }
     }
 }

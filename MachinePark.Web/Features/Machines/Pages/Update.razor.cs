@@ -24,38 +24,28 @@
 
         private async Task GetMachine()
         {
-            try
+            var machine = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
+            if (machine != null)
             {
-                var result = await HttpService.GetAsync<MachineDto>($"{Endpoints.Machines}/{Id}");
-                if (result.Succeeded)
-                {
-                    Model.Name = result.Data.Name;
-                    Model.Status = result.Data.Status;
-                    Model.MachineTypeId = result.Data.Type.Id;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                Model.Name = machine.Name;
+                Model.Status = machine.Status;
+                Model.MachineTypeId = machine.Type.Id;
             }
         }
 
         private async Task GetMachineTypes()
         {
-            var result = await HttpService.GetAsync<IEnumerable<MachineTypeDto>>(Endpoints.MachineTypes);
-            if (result.Succeeded)
+            var machineTypes = await HttpService.GetAsync<IEnumerable<MachineTypeDto>>(Endpoints.MachineTypes);
+            if (machineTypes != null)
             {
-                MachineTypes = result.Data;
+                MachineTypes = machineTypes;
             }
         }
 
         private async Task Submit()
         {
-            var result = await HttpService.PutAsync($"{Endpoints.Machines}/{Id}", Model);
-            if (result.Succeeded)
-            {
-                NavigationManager.NavigateTo("/dashboard", forceLoad: true);
-            }
+            await HttpService.PutAsync($"{Endpoints.Machines}/{Id}", Model);
+            NavigationManager.NavigateTo("/dashboard", forceLoad: true);
         }
     }
 }

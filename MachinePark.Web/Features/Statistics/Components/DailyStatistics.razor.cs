@@ -8,7 +8,6 @@
         public StatisticsDto Model { get; set; } = default!;
 
         public bool Loading { get; set; } = false;
-        public string[] Errors { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
@@ -24,21 +23,10 @@
         {
             Loading = true;
 
-            try
+            var statistics = await HttpService.GetAsync<StatisticsDto>(Endpoints.Statistics);
+            if (statistics != null)
             {
-                var result = await HttpService.GetAsync<StatisticsDto>(Endpoints.Statistics);
-                if (result.Succeeded)
-                {
-                    Model = result.Data;
-                }
-                else
-                {
-                    Errors = result.Errors;
-                }
-            }
-            catch (Exception ex)
-            {
-                Errors = [ex.Message];
+                Model = statistics;
             }
 
             Loading = false;

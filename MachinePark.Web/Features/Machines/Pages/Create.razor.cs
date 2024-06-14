@@ -19,26 +19,16 @@
 
         private async Task Submit()
         {
-            var result = await HttpService.PostAsync(Endpoints.Machines, Model);
-            if (result.Succeeded)
-            {
-                NavigationManager.NavigateTo("/dashboard", forceLoad: true);
-            }
+            await HttpService.PostAsync(Endpoints.Machines, Model);
+            NavigationManager.NavigateTo("/dashboard", forceLoad: true);
         }
 
         private async Task GetMachineTypes()
         {
-            try
+            var machineTypes = await HttpService.GetAsync<IEnumerable<MachineTypeDto>>(Endpoints.MachineTypes);
+            if (machineTypes != null)
             {
-                var result = await HttpService.GetAsync<IEnumerable<MachineTypeDto>>(Endpoints.MachineTypes);
-                if (result.Succeeded)
-                {
-                    MachineTypes = result.Data;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                MachineTypes = machineTypes;
             }
         }
     }

@@ -8,7 +8,6 @@
         public IEnumerable<MachineDto> Model { get; set; } = default!;
 
         public bool Loading { get; set; } = false;
-        public string[] Errors { get; set; } = default!;
 
         protected override async Task OnInitializedAsync()
         {
@@ -24,21 +23,10 @@
         {
             Loading = true;
 
-            try
+            var machines = await HttpService.GetAsync<IEnumerable<MachineDto>>(Endpoints.Machines);
+            if (machines != null)
             {
-                var result = await HttpService.GetAsync<IEnumerable<MachineDto>>(Endpoints.Machines);
-                if (result.Succeeded)
-                {
-                    Model = result.Data;
-                }
-                else
-                {
-                    Errors = result.Errors;
-                }
-            }
-            catch (Exception ex)
-            {
-                Errors = [ex.Message];
+                Model = machines;
             }
 
             Loading = false;
